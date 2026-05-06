@@ -1,0 +1,39 @@
+# Wallpaper
+output * bg /home/ovalkin/wallpapers/6.png fill 
+
+#Font
+font Maple Mono Bold 12px
+
+bar {
+  swaybar_command waybar
+}
+
+floating_minimum_size 400 x 300
+hide_edge_borders none
+smart_gaps disable
+
+default_orientation auto
+workspace_layout default
+
+default_border pixel 5
+default_floating_border pixel 5 
+
+gaps inner 15
+gaps outer 0
+
+set $bg         #333333
+set $fg         #cccccc
+set $gray_dark  #666666
+set $gray_light #999999
+set $accent     #ffcc99
+set $accent_dim #cc9966
+set $urgent     #cc6699
+set $white      #ffffff
+
+#      Class             border       bg          text        indica      child_border 
+client.focused           $accent_dim  $accent_dim $fg         $accent_dim $accent_dim
+client.focused_inactive  $gray_dark   $gray_dark  $gray_light $gray_dark  $gray_dark
+client.unfocused         $gray_light      $gray_light     $white      $gray_dark  $gray_dark
+client.urgent            $urgent      $urgent     $fg         $urgent     $urgent
+client.placeholder       $gray_dark   $gray_dark  $fg         $gray_dark  $gray_dark
+client.background        $bg

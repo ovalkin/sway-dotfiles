@@ -1,0 +1,33 @@
+
+xwayland enable
+
+# Env
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME qt6ct
+
+# Variables
+set $mod Mod4
+set $term kitty
+set $menu pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun
+set $exploer nemo
+set $lock swaylock -f -e \
+                --screenshots \
+                --clock \
+                --indicator \
+                --indicator-radius 100 \
+                --indicator-thickness 4 \
+                --effect-blur 7x5 \
+                --effect-vignette 0.5:0.5 \
+                --effect-scale 0.8 \
+                --grace 3 \
+                --fade-in 0.1 \
+                --ring-color cc9966 \--key-hl-color cc6699 \
+                --inside-color 333333 \
+                --line-color 00000000 \
+                --separator-color ffcc99
+
+include autostart
+include io
+include binds
+include view
+include window_rules
